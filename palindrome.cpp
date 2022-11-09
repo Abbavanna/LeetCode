@@ -11,28 +11,26 @@ public:
         // example 212
         int num = 0;
         int y = x; //(storing the actual number to dummy varaible)
-        while (x > 0)
+        if (x < 0 || (x % 10 == 0) && x != 0)
         {
-            num *= 10;       // multiplying with 10 (0)
-            num += (x % 10); // 0 + (212%10) = 12
-            x /= 10;         // 212/10 = 2
-        }
-
-        if (num == y)
-        {
-            return true;
-        }
-        else
-        {
+            cout << "Please check the entered number" << endl;
             return false;
         }
+
+        while (x > 0)
+        {
+            num = num * 10 + (x % 10);
+            x = x / 10;
+        }
+
+        return y == num || y == num / 10;
     }
 };
 
 int main()
 {
 
-    int x = 222;
+    int x = 564;
     Solution s;
     bool c = s.isPalindrome(x);
     cout << c;
